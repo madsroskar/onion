@@ -21,6 +21,7 @@ final storyThumbnailImg = querySelector("#story-thumbnail img");
 final btnTheOnion = querySelector("#the-onion");
 final btnNotTheOnion = querySelector("#not-the-onion");
 final spanScore = querySelector("#stats #score");
+final spanScore = querySelector("#stats #answered");
 final spanSubreddit = querySelector("#subreddit-span #subreddit");
 final spanUrl = querySelector("#url-span .link");
 final spanComments = querySelector("#comments-span .link");
@@ -162,6 +163,7 @@ void addStoryToView(Story story) {
   currentStory = story;
   storyTitleDiv.text = story.title;
   spanScore.text = window.localStorage['score'];
+  spanAnswered.text = window.localStorage['answered'];
 
   // = "url(" + story.thumbnail + ");";
 }
