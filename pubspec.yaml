@@ -1,0 +1,3 @@
+name: onionornot
+dependencies:
+  browser: any
