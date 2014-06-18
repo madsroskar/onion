@@ -1,6 +1,6 @@
 class Story {
 
-  String id, kind, subreddit, thumbnail, title, url;
+  String id, kind, subreddit, thumbnail, title, url, domain, permalink;
 
 
 
@@ -11,6 +11,9 @@ class Story {
     this.thumbnail = json["data"]["thumbnail"];
     this.title = json["data"]["title"];
     this.url = json["data"]["url"];
+    this.domain = json["data"]["domain"];
+    this.permalink = json["data"]["permalink"];
+
   }
 
 }

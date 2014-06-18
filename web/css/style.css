@@ -58,6 +58,7 @@ div.button-container div.button{
 
 div.button-container div#previous{
     text-align: center;
+
 }
 div.button-container div#previous a{
     text-decoration: none;
@@ -79,6 +80,24 @@ div.button-container div#buttons div:hover{
 
 div.button-container div#buttons div:active{
     background: #00370A;
+}
+
+.none{
+    display: none;
+}
+
+.author{
+    font-size: 9pt;
+}
+
+.correct{
+    background: rgba(0, 255, 0, 0.5);
+    border: 1px solid green;
+}
+
+.incorrect{
+    background: rgba(255, 0, 0, 0.5);
+    border: 1px solid red;
 }
 
 @media (min-width: 481px) and (max-width: 1000px) {

@@ -21,6 +21,11 @@ final storyThumbnailImg = querySelector("#story-thumbnail img");
 final btnTheOnion = querySelector("#the-onion");
 final btnNotTheOnion = querySelector("#not-the-onion");
 final spanScore = querySelector("#stats #score");
+final spanSubreddit = querySelector("#subreddit-span #subreddit");
+final spanUrl = querySelector("#url-span .link");
+final spanComments = querySelector("#comments-span .link");
+final previous = querySelector("#previous");
+
 
 void main() {
   init();
@@ -40,6 +45,7 @@ void answer(Event e) {
 
   if(loading) return;
   DivElement div = e.target;
+  previous.classes.clear();
   if(div.id == "the-onion"){
     if(currentStory.subreddit == THE_ONION){
       correctAnswer();
@@ -56,23 +62,37 @@ void answer(Event e) {
 }
 
 void correctAnswer(){
-  //Score++
+  editScore(1);
+  previous.classes.add('correct');
   nextQuestion();
 }
 
 void wrongAnswer(){
-  editScore(2);
+  editScore(-1);
+  previous.classes.add('incorrect');
   nextQuestion();
 }
 
 void nextQuestion(){
-  editScore(-1);
+  showResult();
   addStoryToView(getNextStory());
+}
+
+void showResult(){
+
+  spanSubreddit.innerHtml = currentStory.subreddit;
+  spanUrl.setAttribute("href", currentStory.url);
+  spanUrl.innerHtml = currentStory.domain;
+  spanComments.setAttribute("href", "http://reddit.com" + currentStory.permalink);
 }
 
 String generateUrl() {
   if (queue.length == 0) {
-    return URL;
+    if(window.localStorage.containsKey("after")){
+      return URL + "?" + COUNT + "&" + AFTER + "t3_" + window.localStorage["after"];
+    }else{
+      return URL;
+    }
   } else {
     Story last = queue.last;
     return URL + "?" + COUNT + "&" + AFTER + "t3_" + last.id;
@@ -109,7 +129,10 @@ void onDataLoaded(String responseText) {
 }
 
 void jsonToQueue(element) {
-  queue.addLast(new Story.fromJsonObject(element));
+  Story s = new Story.fromJsonObject(element);
+  if(!window.localStorage.containsKey(s.id)){
+    queue.addLast(s);
+  }
 }
 
 void editScore(int change){
@@ -119,7 +142,12 @@ void editScore(int change){
   }
 }
 
+
+
 void addStoryToView(Story story) {
+  if(currentStory != null){
+    window.localStorage["after"] = currentStory.id;
+  }
   currentStory = story;
   storyTitleDiv.text = story.title;
   spanScore.text = window.localStorage['score'];
