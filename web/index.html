@@ -3,17 +3,55 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-    <div class="row">
-        <div class="large-12 columns" id="story-title">
-
+<div class="wrapper">
+    <div class="container">
+        <div id="brand">
+            r/TheOnion or r/nottheonion?
+        </div>
+        <div id="name">
+            <div id="stats">
+                Score: <span id="score">0</span>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="container">
+        <div id="story-title">
+            <!-- The title of the story (no shit) -->
+        </div>
+        <div class="button-wrapper">
+            <div class="button-container">
+                <div id="buttons">
+                    <div id="the-onion" class="button expand" unselectable='on' onselectstart='return false;'
+                         onmousedown='return false;'>The Onion
+                    </div>
+                    <div id="not-the-onion" class="button expand" unselectable='on' onselectstart='return false;'
+                         onmousedown='return false;'>Not The Onion
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-wrapper">
+            <div class="button-container">
+                <div id="previous" class="none">
+                    <span id="subreddit-span">That was from r/<span id="subreddit">TheOnion</span>.</span><br/>
+                    <span id="url-span">See the story at <a href="#">The Onion</a>.</span><br/>
+                    <span id="comments-span">Go to the <a href="#">reddit comments</a></span>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <script type="application/dart" src="src/app.dart"></script>
-    <script src="packages/browser/dart.js"></script>
+<script type="application/dart" src="src/app.dart"></script>
+<script src="packages/browser/dart.js"></script>
 </body>
 </html>

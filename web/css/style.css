@@ -1,0 +1,96 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: url('../img/crossword.png');
+}
+
+div.wrapper{
+    position: relative;
+    width: 100%;
+}
+
+div.container{
+    position: relative;
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+}
+
+div#brand{
+    font-size: 20pt;
+    font-weight: 500;
+}
+
+div#story-title{
+    position: relative;
+    width: 100%;
+    font-size: 30pt;
+    text-align: center;
+    min-height: 300px;
+}
+
+div.button-wrapper{
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    height: 75px;
+}
+div.button-container{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+div.button-container div.button{
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px 0px;
+    width: 49%;
+    text-align: center;
+    font-size: 20pt;
+    color: #FFFFFF;
+    background: #046A3D;
+
+}
+
+div.button-container div#previous{
+    text-align: center;
+}
+div.button-container div#previous a{
+    text-decoration: none;
+}
+div.button-container div#previous #subreddit-span{
+    font-size: 15pt;
+}
+div.button-container div#previous #url-span{
+    font-size: 10pt;
+}
+div.button-container div#previous #comments-span{
+    font-size: 10pt;
+}
+
+div.button-container div#buttons div:hover{
+    cursor: pointer;
+    background: #005124;
+}
+
+div.button-container div#buttons div:active{
+    background: #00370A;
+}
+
+@media (min-width: 481px) and (max-width: 1000px) {
+    div#container{
+        width: 94%;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+
+}
+
+@media (max-width: 320px) {
+
+}
