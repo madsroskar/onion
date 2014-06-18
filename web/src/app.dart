@@ -37,7 +37,10 @@ void init() {
   btnNotTheOnion.addEventListener("click", answer);
   loadNewStories(onInit);
   if(window.localStorage['score'] == null){
-    window.localStorage['score'] = "0";
+      window.localStorage['score'] = "0";
+  }
+  if(window.localStorage['answered'] == null){
+      window.localStorage['answered'] = "0";
   }
 }
 
@@ -45,6 +48,7 @@ void answer(Event e) {
 
   if(loading) return;
   DivElement div = e.target;
+  editAnswered(1);
   previous.classes.clear();
   if(div.id == "the-onion"){
     if(currentStory.subreddit == THE_ONION){
@@ -68,7 +72,7 @@ void correctAnswer(){
 }
 
 void wrongAnswer(){
-  editScore(-1);
+  //editScore(-1);
   previous.classes.add('incorrect');
   nextQuestion();
 }
@@ -139,6 +143,13 @@ void editScore(int change){
   window.localStorage['score'] = (int.parse(window.localStorage['score']) + change).toString();
   if(int.parse(window.localStorage['score']) < 0){
     window.localStorage['score'] = "0";
+  }
+}
+
+void editAnswered(int change){
+  window.localStorage['answered'] = (int.parse(window.localStorage['answered']) + change).toString();
+  if(int.parse(window.localStorage['answered']) < 0){
+    window.localStorage['answered'] = "0";
   }
 }
 
